@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мини-сайт о WordPress</title>
+    {% load static %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1>{{ subsections.first.section.title }}</h1>
+        <div class="sections">
+            {% for subsection in subsections %}
+            <div class="section">
+                <a href="{% url 'subsection_detail' subsection.id %}">{{ subsection.title }}</a>
+            </div>
+            {% endfor %}
+        </div>
+<div style="text-align:center;">
+    <a href="{% url 'section_list' %}" class="button">Вернуться к разделам</a>
+</div>
+
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ subsection.title }}</title>
+    {% load static %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ subsection.title }}</h1>
+        <div class="content-container">
+            {{ subsection.content|linebreaks }}
+        </div>
+        <div style="text-align:center;">
+        <a href="{% url 'subsection_list' subsection.section.id %}" class="button">Вернуться к подразделам</a>
+            </div>
+    </div>
+</body>
+</html>
